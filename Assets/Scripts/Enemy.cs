@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
+    protected int health;
 
     void Awake()
     {
@@ -69,5 +70,22 @@ public class Enemy : MonoBehaviour
         float distance = (enemy.transform.position - transform.position).magnitude;
         canAttack = distance <= stats.attackRadius;
         agent.SetDestination(canAttack ? transform.position : enemy.transform.position);
+    }
+    protected int TakeDamage(int value)
+    {
+        health -= value;
+        if (health <= 0)
+        {
+            var particles = Instantiate(stats.deathParticles, transform.position, Quaternion.identity);
+            Destroy(particles, 5f);
+            Destroy(gameObject, 0.01f);
+            return stats.loot;
+        }
+        else
+        {
+            var particles = Instantiate(stats.hurtParticles, transform.position, Quaternion.identity);
+            Destroy(particles, 5f);
+        }
+        return 0;
     }
 }

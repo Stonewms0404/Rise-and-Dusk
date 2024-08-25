@@ -15,12 +15,14 @@ public class Friendly : MonoBehaviour
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
+    protected int health;
 
     void Awake()
     {
         renderer.sprite = stats.texture;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        health = stats.health;
     }
 
     protected (bool, Enemy) FindEnemy()
@@ -55,5 +57,21 @@ public class Friendly : MonoBehaviour
         float distance = (enemy.transform.position - transform.position).magnitude;
         canAttack = distance <= stats.attackRadius;
         agent.SetDestination(canAttack ? transform.position : enemy.transform.position);
+    }
+
+    void TakeDamage(int value)
+    {
+        health -= value;
+        if (health <= 0)
+        {
+            var particles = Instantiate(stats.deathParticles, transform.position, Quaternion.identity);
+            Destroy(particles, 5f);
+            Destroy(gameObject, 0.01f);
+        }
+        else
+        {
+            var particles = Instantiate(stats.hurtParticles, transform.position, Quaternion.identity);
+            Destroy(particles, 5f);
+        }
     }
 }

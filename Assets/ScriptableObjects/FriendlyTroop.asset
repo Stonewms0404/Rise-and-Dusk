@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d218abf7ab738484e82df8a9c62bfbe6, type: 3}
+  m_Name: FriendlyTroop
+  m_EditorClassIdentifier: 
+  health: 25
+  damage: 5
+  loot: 1
+  speed: 2
+  attackSpeed: 1
+  sightRadius: 3
+  attackRadius: 0.5
+  texture: {fileID: 0}
+  hurtParticles: {fileID: 7523983297243747263, guid: 23d419692b5e1c947adade1e37297dea, type: 3}
+  shootParticles: {fileID: 2005847114457959779, guid: c4886c822c5032a40a42d40f9640f1df, type: 3}
+  healedParticles: {fileID: 3707016539041989411, guid: 4fc57d3560a844a469f585220560eab3, type: 3}
+  deathParticles: {fileID: 355224186478089900, guid: e69bf95c3a4c1164da285fc30541254e, type: 3}

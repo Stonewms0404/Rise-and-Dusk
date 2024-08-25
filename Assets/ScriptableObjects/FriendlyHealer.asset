@@ -19,7 +19,7 @@ MonoBehaviour:
   attackSpeed: 2
   sightRadius: 5
   attackRadius: 1.2
-  texture: {fileID: 0}
+  texture: {fileID: -8479400170031028200, guid: 460a7ad35d2067e4a8a8141cef16192b, type: 3}
   hurtParticles: {fileID: 7523983297243747263, guid: 23d419692b5e1c947adade1e37297dea, type: 3}
   shootParticles: {fileID: 3707016539041989411, guid: 37d535c97eafa90459e67c750a5a830b, type: 3}
   healedParticles: {fileID: 3707016539041989411, guid: 4fc57d3560a844a469f585220560eab3, type: 3}

@@ -3174,6 +3174,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: scifi_tilesheet_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1152
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846931fa602cbbb4983f0d4d74a1bc34
+      internalID: -459898860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -3219,6 +3241,7 @@ TextureImporter:
       scifi_tilesheet_123: -1406896408
       scifi_tilesheet_124: -238021257
       scifi_tilesheet_125: -1510151595
+      scifi_tilesheet_126: -459898860
       scifi_tilesheet_13: -846327298543688054
       scifi_tilesheet_14: 4372199963847662514
       scifi_tilesheet_15: -19136094577009886

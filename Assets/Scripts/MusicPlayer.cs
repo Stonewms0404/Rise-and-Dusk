@@ -8,11 +8,12 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] AudioClip[] clipList;
     [SerializeField] TextMeshProUGUI songNameUI;
     private IEnumerator coroutine;
-    float delay = 3f;
-    int count = 0;
+    const float delay = 3f;
+    int index = -1;
 
     void Start()
     {
+        ShuffleMusic();
         coroutine = PlayMusic();
         StartCoroutine(coroutine);
     }
@@ -24,18 +25,28 @@ public class MusicPlayer : MonoBehaviour
 
     void HandleArrayCount()
     {
-        if (count > 8) count = 0;
+        if (index > 8) index = 0;
     }
 
     private IEnumerator PlayMusic()
     {
         while (true)
         {
-            source.PlayOneShot(clipList[count]);
-            songNameUI.text = clipList[count].name;
-            yield return new WaitForSeconds(clipList[count].length + delay); 
-            count++;
+            source.PlayOneShot(clipList[index]);
+            songNameUI.text = clipList[index].name;
+            yield return new WaitForSeconds(clipList[index].length + delay);
+            songNameUI.text = "Shuffling Music";
         }
-        
+    }
+
+    void ShuffleMusic()
+    {
+        while (true)
+        {
+            int lastIndex = index;
+            index = UnityEngine.Random.Range(0, clipList.Length);
+            if (index != lastIndex)
+                break;
+        }
     }
 }

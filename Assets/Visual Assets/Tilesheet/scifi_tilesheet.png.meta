@@ -360,6 +360,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2334,7 +2373,96 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scifi_tilesheet_0: -884771852063699850
+      scifi_tilesheet_1: -3078960475063566323
+      scifi_tilesheet_10: -6435640330611684581
+      scifi_tilesheet_11: 8499868006881926708
+      scifi_tilesheet_12: -6669323450275543840
+      scifi_tilesheet_13: -846327298543688054
+      scifi_tilesheet_14: 4372199963847662514
+      scifi_tilesheet_15: -19136094577009886
+      scifi_tilesheet_16: -3214249460097579082
+      scifi_tilesheet_17: -2399032805889199895
+      scifi_tilesheet_18: -4515124988449878751
+      scifi_tilesheet_19: 8042482797666345349
+      scifi_tilesheet_2: -7235628790223950992
+      scifi_tilesheet_20: 3263415879613245438
+      scifi_tilesheet_21: -4919542540662911526
+      scifi_tilesheet_22: -3088897576350527188
+      scifi_tilesheet_23: -6956310298908029969
+      scifi_tilesheet_24: 2041590807255489881
+      scifi_tilesheet_25: -1604599101027789625
+      scifi_tilesheet_26: 2896955985190824584
+      scifi_tilesheet_27: -4657425192533571914
+      scifi_tilesheet_28: -6863630518970400146
+      scifi_tilesheet_29: 2925936875296683516
+      scifi_tilesheet_3: -1574616700251386702
+      scifi_tilesheet_30: 6218895409761353268
+      scifi_tilesheet_31: -4231171884551205534
+      scifi_tilesheet_32: -1814230749625641253
+      scifi_tilesheet_33: 4451187357514302685
+      scifi_tilesheet_34: -5150074740126512270
+      scifi_tilesheet_35: -7360543000544624489
+      scifi_tilesheet_36: -6663321947168755724
+      scifi_tilesheet_37: 5604879756795835928
+      scifi_tilesheet_38: 9201626342597836151
+      scifi_tilesheet_39: 2193145452305156392
+      scifi_tilesheet_4: -356286005099892340
+      scifi_tilesheet_40: -1271304000414874240
+      scifi_tilesheet_41: 7913371816370331992
+      scifi_tilesheet_42: 1835622749237893309
+      scifi_tilesheet_43: 6257739414564483258
+      scifi_tilesheet_44: -2573706693403493629
+      scifi_tilesheet_45: -8848391941763697782
+      scifi_tilesheet_46: 3538927936194192776
+      scifi_tilesheet_47: -3126594411295975869
+      scifi_tilesheet_48: 9120081772749884147
+      scifi_tilesheet_49: -8256194611644022528
+      scifi_tilesheet_5: -5321403064844356963
+      scifi_tilesheet_50: -8367311942446538
+      scifi_tilesheet_51: 1500889444004767779
+      scifi_tilesheet_52: -5632445163117826993
+      scifi_tilesheet_53: 8662478791316853811
+      scifi_tilesheet_54: -8091212137695897758
+      scifi_tilesheet_55: 1514842048775690848
+      scifi_tilesheet_56: 989242200505487853
+      scifi_tilesheet_57: -6055305519766582081
+      scifi_tilesheet_58: -8560864108167711726
+      scifi_tilesheet_59: 2992647897644371974
+      scifi_tilesheet_6: 1607288548000570420
+      scifi_tilesheet_60: 5894046430429113449
+      scifi_tilesheet_61: 291950282576555353
+      scifi_tilesheet_62: -8479400170031028200
+      scifi_tilesheet_63: 8453296550421387576
+      scifi_tilesheet_64: -2565472555944103439
+      scifi_tilesheet_65: 1616764822796026584
+      scifi_tilesheet_66: 6703277102297299506
+      scifi_tilesheet_67: 6492767796420536589
+      scifi_tilesheet_68: 3342749704954122041
+      scifi_tilesheet_69: 5484958458301526018
+      scifi_tilesheet_7: 8622764340489838765
+      scifi_tilesheet_70: -9079809005549405582
+      scifi_tilesheet_71: -6631992210628517490
+      scifi_tilesheet_72: -5028629644325228503
+      scifi_tilesheet_73: -8665768467529990820
+      scifi_tilesheet_74: 7834776268120192918
+      scifi_tilesheet_75: -4476778963654639846
+      scifi_tilesheet_76: 5376884059751327311
+      scifi_tilesheet_77: -3382673443218591598
+      scifi_tilesheet_78: 7418776941582963630
+      scifi_tilesheet_79: -8677502200382892513
+      scifi_tilesheet_8: -7920768896404764520
+      scifi_tilesheet_80: 3725119263157635154
+      scifi_tilesheet_81: -8673209269194644575
+      scifi_tilesheet_82: -8567588831931477132
+      scifi_tilesheet_83: 8917302132613865112
+      scifi_tilesheet_84: 9044478829049405941
+      scifi_tilesheet_85: 1471160272521383264
+      scifi_tilesheet_86: 4666928298427591909
+      scifi_tilesheet_87: 7291717942014216606
+      scifi_tilesheet_88: -3131905842355606494
+      scifi_tilesheet_9: 4947579130841436025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

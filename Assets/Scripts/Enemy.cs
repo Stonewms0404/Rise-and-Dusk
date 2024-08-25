@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     #endregion
     [SerializeField] protected Stats stats;
-    [SerializeField] protected NavMeshAgent agent;
+    [SerializeField] protected NavMeshAgent? agent;
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         canAttack = distance <= stats.attackRadius;
         agent.SetDestination(canAttack ? transform.position : enemy.transform.position);
     }
-    protected int TakeDamage(int value)
+    public int TakeDamage(int value)
     {
         health -= value;
         if (health <= 0)

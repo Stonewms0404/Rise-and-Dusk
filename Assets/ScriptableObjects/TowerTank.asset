@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TowerTank
   m_EditorClassIdentifier: 
   health: 50
-  damage: 2
+  damage: -50
   loot: 50
   speed: 0
   attackSpeed: 10

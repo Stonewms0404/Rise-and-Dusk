@@ -11,17 +11,21 @@ public class Friendly : MonoBehaviour
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     #endregion
     [SerializeField] protected Stats stats;
-    [SerializeField] protected NavMeshAgent agent;
+    [SerializeField] protected NavMeshAgent? agent;
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
-    protected int health;
+    public int health;
 
     void Awake()
     {
         renderer.sprite = stats.texture;
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+        if (agent)
+        {
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
+        
         health = stats.health;
     }
 

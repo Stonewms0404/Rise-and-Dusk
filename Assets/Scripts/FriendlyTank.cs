@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class FriendlyTank : Friendly
 {
+    float timer;
     void Update()
     {
+        timer += Time.deltaTime;
+
         (bool isFriendlyNearby, Enemy f) = FindEnemy();
         if (isFriendlyNearby)
         {
@@ -15,7 +18,12 @@ public class FriendlyTank : Friendly
         if (canAttack)
         {
             agent.SetDestination(transform.position);
-            Attack();
+            if (timer >= 1)
+            {
+                timer = 0;
+                Attack();
+            }
+            
         }
         else
             agent.SetDestination(enemy.transform.position);
@@ -23,6 +31,6 @@ public class FriendlyTank : Friendly
 
     void Attack()
     {
-
+        enemy.TakeDamage(stats.damage);
     }
 }

@@ -23,9 +23,18 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
 
+    private Camera camera;
+    private float zoomTarget;
+
+    [SerializeField]
+    private float multiplier = 2f, minZoom = 1f, maxZoom = 10f, smoothTime = .1f;
+    private float velocity = 0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        camera = Camera.main;
+        zoomTarget = camera.orthographicSize;
     }
 
     void Awake()
@@ -37,15 +46,12 @@ public class Player : MonoBehaviour
     {
         move = inputActions.Player.Move;
         move.Enable();
-        //zoom = inputActions.Player.Zoom;
-        //zoom.Enable();
 
         DayNightCycle.Cycle += TogglePlayer;
     }
     void OnDisable()
     {
         move.Disable();
-        //zoom.Disable();
 
         DayNightCycle.Cycle -= TogglePlayer;
     }
@@ -60,14 +66,11 @@ public class Player : MonoBehaviour
         Vector3 camPos = Vector2.Lerp(Camera.main.transform.position, rb.position, camMoveSpeed * Time.deltaTime);
         camPos.z = -10;
         Camera.main.transform.position = camPos;
-        /*
-            if (zoom.ReadValue<float>() < 1)
-                seekZoom += 1;
-            else if (zoom.ReadValue<float>() > 1)
-                seekZoom -= 1;
 
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, seekZoom, Time.deltaTime);
-        */
+        zoomTarget -= Input.GetAxisRaw("Mouse ScrollWheel") * multiplier;
+        zoomTarget = Mathf.Clamp(zoomTarget, minZoom, maxZoom);
+        camera.orthographicSize = Mathf.SmoothDamp(camera.orthographicSize, zoomTarget, ref velocity, smoothTime);
+
         Vector2 clampedPosition = new(
             Mathf.Clamp(rb.position.x, -bounds.x, bounds.x), Mathf.Clamp(rb.position.y, -bounds.y, bounds.y));
         rb.position = clampedPosition;

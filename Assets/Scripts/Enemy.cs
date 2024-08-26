@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     #endregion
     [SerializeField] protected Stats stats;
+    #nullable enable
     [SerializeField] protected NavMeshAgent? agent;
+    #nullable disable
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;

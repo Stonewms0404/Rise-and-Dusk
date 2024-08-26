@@ -13,18 +13,12 @@ public class Player : MonoBehaviour
     [Header("New Input System")]
     InputSystem_Actions inputActions;
     InputAction move;
-    InputAction zoom;
 
     [Header("Objects")]
     [SerializeField] Collider2D coll;
-    [SerializeField] SpriteRenderer renderer;
-
-    float seekZoom;
+    [SerializeField] new SpriteRenderer renderer;
 
     Rigidbody2D rb;
-
-    private Camera camera;
-    private float zoomTarget;
 
     [SerializeField]
     private float multiplier = 2f, minZoom = 1f, maxZoom = 10f, smoothTime = .1f;
@@ -33,8 +27,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        camera = Camera.main;
-        zoomTarget = camera.orthographicSize;
     }
 
     void Awake()
@@ -66,10 +58,6 @@ public class Player : MonoBehaviour
         Vector3 camPos = Vector2.Lerp(Camera.main.transform.position, rb.position, camMoveSpeed * Time.deltaTime);
         camPos.z = -10;
         Camera.main.transform.position = camPos;
-
-        zoomTarget -= Input.GetAxisRaw("Mouse ScrollWheel") * multiplier;
-        zoomTarget = Mathf.Clamp(zoomTarget, minZoom, maxZoom);
-        camera.orthographicSize = Mathf.SmoothDamp(camera.orthographicSize, zoomTarget, ref velocity, smoothTime);
 
         Vector2 clampedPosition = new(
             Mathf.Clamp(rb.position.x, -bounds.x, bounds.x), Mathf.Clamp(rb.position.y, -bounds.y, bounds.y));

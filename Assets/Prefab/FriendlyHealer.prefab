@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2557391156541986194}
   - component: {fileID: -6151791584042052421}
   - component: {fileID: 2269795867356753502}
+  - component: {fileID: 4564280675283928829}
   m_Layer: 0
   m_Name: FriendlyHealer
   m_TagString: Untagged
@@ -190,6 +191,7 @@ MonoBehaviour:
   renderer: {fileID: 2557391156541986194}
   stats: {fileID: 11400000, guid: 290c8d6531608914e93b4023ad29e201, type: 2}
   agent: {fileID: 2269795867356753502}
+  health: 0
 --- !u!195 &2269795867356753502
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -212,3 +214,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!58 &4564280675283928829
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280241971406647500}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.25

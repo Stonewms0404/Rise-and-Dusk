@@ -24,7 +24,7 @@ public class Wallet : MonoBehaviour
 
     void GetLoot(int value)
     {
-        balance += value;
+        Transaction(value);
     }
 
     public bool Transaction(int value)

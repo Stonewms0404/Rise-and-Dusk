@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
-    protected int health;
+    [SerializeField] protected int health;
 
     void Awake()
     {
@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
     {
         float distance = (friendly.transform.position - transform.position).magnitude;
         canAttack = distance <= stats.attackRadius;
-        agent.SetDestination(canAttack ? transform.position : friendly.transform.position);
+        agent.SetDestination(friendly.transform.position);
     }
     protected void MoveTowardsEnemy()
     {

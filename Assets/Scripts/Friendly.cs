@@ -17,7 +17,7 @@ public class Friendly : MonoBehaviour
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
-    protected int health;
+    [SerializeField] protected int health;
 
     void Awake()
     {
@@ -82,7 +82,7 @@ public class Friendly : MonoBehaviour
     {
         float distance = (enemy.transform.position - transform.position).magnitude;
         canAttack = distance <= stats.attackRadius;
-        agent.SetDestination(canAttack ? transform.position : enemy.transform.position);
+        agent.SetDestination(enemy.transform.position);
     }
 
     public void TakeDamage(int value)
@@ -92,7 +92,8 @@ public class Friendly : MonoBehaviour
         {
             var particles = Instantiate(stats.deathParticles, transform.position, Quaternion.identity);
             Destroy(particles, 5f);
-            Destroy(gameObject, 0.01f);
+            if (!isTower) Destroy(gameObject, 0.01f);
+            else gameObject.SetActive(false);
         }
         else
         {

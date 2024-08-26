@@ -18,7 +18,7 @@ public class FriendlyTower : Friendly
     {
         if (!value) for (int i = 0; i < count; i++)
         {
-            Vector2 offset = (new Vector2(UnityEngine.Random.Range(0, 5f), UnityEngine.Random.Range(0, 5f))).normalized * 2;
+            Vector2 offset = (new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5, 5f))).normalized * 2;
             Instantiate(spawn, (Vector2)transform.position + offset, Quaternion.identity);
         }
     }

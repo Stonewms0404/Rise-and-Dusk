@@ -21,6 +21,8 @@ public class DayNightCycle : MonoBehaviour
             Enemy[] enemies = GameObject.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
             if (enemies.Length == 0)
             {
+                FriendlyTower[] towers = GameObject.FindObjectsByType<FriendlyTower>(FindObjectsSortMode.None);
+                foreach (FriendlyTower tower in towers) tower.gameObject.SetActive(true);
                 isDay = true;
                 Cycle?.Invoke(isDay);
                 StartCoroutine(CycleLight());
@@ -37,6 +39,7 @@ public class DayNightCycle : MonoBehaviour
             isDay = false;
             Cycle?.Invoke(isDay);
             StartCoroutine(CycleLight());
+            StartCoroutine(CheckEnemies());
             return;
         }
     }

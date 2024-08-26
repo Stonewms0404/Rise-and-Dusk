@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FriendlyTroop
   m_EditorClassIdentifier: 
   health: 25
-  damage: 5
-  loot: 1
+  damage: 10
+  loot: 5
   speed: 2
   attackSpeed: 1
   sightRadius: 3

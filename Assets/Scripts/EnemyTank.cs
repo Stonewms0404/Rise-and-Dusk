@@ -21,6 +21,21 @@ public class EnemyTank : Enemy
                     Attack();
                 }
             }
+            return;
+        }
+        (isFriendlyNearby, f) = FindTower();
+        if (isFriendlyNearby)
+        {
+            friendly = f;
+            MoveTowardsFriendly();
+            if (canAttack)
+            {
+                if (timer >= stats.attackSpeed)
+                {
+                    timer = 0;
+                    Attack();
+                }
+            }
         }
     }
 

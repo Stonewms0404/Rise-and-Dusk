@@ -19,21 +19,26 @@ public class EnemySpawner : MonoBehaviour
         if (!value)
         {
             wave++;
-            int alloc = wave;
-            Debug.Log(alloc);
             int numOfTroops, numOfHealers, numOfTanks;
-            numOfTanks = (alloc / 5) * 2;
-            alloc /= numOfTanks == 0 ? 1 : numOfTanks * 2;
-            Debug.Log(alloc);
-            numOfTroops = alloc * 3;
-            numOfHealers = alloc;
+            numOfTanks = (wave / 5) * 2;
+            numOfTroops = wave * 4;
+            numOfHealers = wave;
 
             for (int i = 0; i < numOfTroops; i++)
-                Instantiate(enemies[0], transform);
+            {
+                Vector2 offset = (new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5, 5f))).normalized * 2;
+                Instantiate(enemies[0], offset + (Vector2)transform.position, Quaternion.identity, transform);
+            }
             for (int i = 0; i < numOfHealers; i++)
-                Instantiate(enemies[1], transform);
+            {
+                Vector2 offset = (new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5, 5f))).normalized * 2;
+                Instantiate(enemies[1], offset + (Vector2)transform.position, Quaternion.identity, transform);
+            }
             for (int i = 0; i < numOfTanks; i++)
-                Instantiate(enemies[2], transform);
+            {
+                Vector2 offset = (new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(-5, 5f))).normalized * 2;
+                Instantiate(enemies[2], offset + (Vector2)transform.position, Quaternion.identity, transform);
+            }
         }
     }
 }

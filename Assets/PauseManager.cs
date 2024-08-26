@@ -4,6 +4,8 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
 
+    bool pause = false;
+
     private void Start()
     {
         pauseMenu.SetActive(false);
@@ -12,14 +14,15 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            pause = !pause;
+            if (pause) Pause();
+            else Resume();
         }
     }
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
-
     }
 
     public void Pause()

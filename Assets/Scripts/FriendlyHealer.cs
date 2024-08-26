@@ -11,23 +11,24 @@ public class FriendlyHealer : Friendly
         {
             friendly = f;
             MoveTowardsFriendly();
-        }
-        if (canAttack)
-        {
-            agent.SetDestination(transform.position);
-            if (timer >= 1)
+            if (canAttack)
             {
-                Heal();
-                timer = 0;
-            }
+                agent.SetDestination(transform.position);
+                if (timer >= stats.attackSpeed)
+                {
+                    Heal();
+                    timer = 0;
+                }
             
+            }
+            else
+                agent.SetDestination(friendly.transform.position);
         }
-        else
-            agent.SetDestination(friendly.transform.position);
     }
 
     void Heal()
     {
-        friendly.health += stats.damage;
+        friendly.HealFriendly(stats.damage);
+        Destroy(Instantiate(stats.shootParticles, transform.position, Quaternion.identity), 5);
     }
 }

@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
         camPos.z = -10;
         Camera.main.transform.position = camPos;
         /*
-                if (zoom.ReadValue<float>() < 1)
-                    seekZoom += 1;
-                else if (zoom.ReadValue<float>() > 1)
-                    seekZoom -= 1;
+            if (zoom.ReadValue<float>() < 1)
+                seekZoom += 1;
+            else if (zoom.ReadValue<float>() > 1)
+                seekZoom -= 1;
 
-                Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, seekZoom, Time.deltaTime);
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, seekZoom, Time.deltaTime);
         */
         Vector2 clampedPosition = new(
             Mathf.Clamp(rb.position.x, -bounds.x, bounds.x), Mathf.Clamp(rb.position.y, -bounds.y, bounds.y));
@@ -102,5 +102,7 @@ public class Player : MonoBehaviour
     {
         renderer.enabled = value;
         coll.enabled = value;
+        if (value) 
+            transform.position = Vector3.one;
     }
 }

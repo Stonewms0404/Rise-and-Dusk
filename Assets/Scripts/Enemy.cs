@@ -4,6 +4,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public static event Action<int> EnemyDeath;
+
     #region Renderer
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
     [SerializeField] SpriteRenderer renderer;
@@ -21,6 +23,29 @@ public class Enemy : MonoBehaviour
         renderer.sprite = stats.texture;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.speed = stats.speed;
+    }
+    private void OnEnable()
+    {
+        DayNightCycle.Cycle += DestroyEnemies;
+    }
+    private void OnDisable()
+    {
+        DayNightCycle.Cycle -= DestroyEnemies;
+    }
+
+    private void OnDestroy()
+    {
+        EnemyDeath?.Invoke(stats.loot);
+    }
+
+    private void DestroyEnemies(bool value)
+    {
+        if (value)
+        {
+            Instantiate(stats.deathParticles);
+            Destroy(gameObject);
+        }
     }
 
     protected (bool, Friendly) CheckFriendliesInRadius()
@@ -87,5 +112,10 @@ public class Enemy : MonoBehaviour
             Destroy(particles, 5f);
         }
         return 0;
+    }
+
+    public void HealEnemy(int value)
+    {
+        health += value;
     }
 }

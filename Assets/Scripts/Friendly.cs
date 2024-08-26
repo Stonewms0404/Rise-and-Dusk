@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Friendly : MonoBehaviour
 {
@@ -15,18 +17,38 @@ public class Friendly : MonoBehaviour
     protected Friendly friendly;
     protected Enemy enemy;
     protected bool canAttack;
-    public int health;
+    protected int health;
 
     void Awake()
     {
+        canAttack = true;
         renderer.sprite = stats.texture;
         if (agent)
         {
             agent.updateRotation = false;
             agent.updateUpAxis = false;
+            agent.speed = stats.speed;
         }
         
         health = stats.health;
+    }
+
+    private void OnEnable()
+    {
+        DayNightCycle.Cycle += DestroyFriendlies;
+    }
+    private void OnDisable()
+    {
+        DayNightCycle.Cycle -= DestroyFriendlies;
+    }
+
+    private void DestroyFriendlies(bool value)
+    {
+        if (value)
+        {
+            Instantiate(stats.deathParticles);
+            Destroy(gameObject);
+        }
     }
 
     protected (bool, Enemy) FindEnemy()
@@ -63,7 +85,7 @@ public class Friendly : MonoBehaviour
         agent.SetDestination(canAttack ? transform.position : enemy.transform.position);
     }
 
-    void TakeDamage(int value)
+    public void TakeDamage(int value)
     {
         health -= value;
         if (health <= 0)
@@ -77,5 +99,10 @@ public class Friendly : MonoBehaviour
             var particles = Instantiate(stats.hurtParticles, transform.position, Quaternion.identity);
             Destroy(particles, 5f);
         }
+    }
+
+    public void HealFriendly(int value)
+    {
+        health += value;
     }
 }

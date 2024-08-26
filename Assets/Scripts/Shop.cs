@@ -19,11 +19,9 @@ public class Shop : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         panel.SetActive(false);
-        
     }
 
     private void OnEnable()

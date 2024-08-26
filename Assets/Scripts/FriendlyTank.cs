@@ -3,6 +3,7 @@ using UnityEngine;
 public class FriendlyTank : Friendly
 {
     float timer;
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -12,25 +13,24 @@ public class FriendlyTank : Friendly
         {
             enemy = f;
             MoveTowardsEnemy();
-            return;
+            if (canAttack)
+            {
+                agent.SetDestination(transform.position);
+                if (timer >= stats.attackSpeed)
+                {
+                    timer = 0;
+                    Attack();
+                }
+            }
+            else
+                agent.SetDestination(enemy.transform.position);
         }
 
-        if (canAttack)
-        {
-            agent.SetDestination(transform.position);
-            if (timer >= 1)
-            {
-                timer = 0;
-                Attack();
-            }
-            
-        }
-        else
-            agent.SetDestination(enemy.transform.position);
     }
 
     void Attack()
     {
         enemy.TakeDamage(stats.damage);
+        Destroy(Instantiate(stats.shootParticles, transform.position, Quaternion.identity), 5);
     }
 }

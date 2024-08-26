@@ -2,25 +2,32 @@ using UnityEngine;
 
 public class EnemyHealer : Enemy
 {
+    float timer;
     void Update()
     {
-        (bool isFriendlyNearby, Enemy e) = CheckEnemiesInRadius();
+        timer += Time.deltaTime;
+        (bool isFriendlyNearby, Friendly f) = CheckFriendliesInRadius();
         if (isFriendlyNearby)
         {
-            enemy = e;
-            MoveTowardsEnemy();
+            friendly = f;
+            MoveTowardsFriendly();
+            if (canAttack)
+            {
+                agent.SetDestination(transform.position);
+                if (timer >= stats.attackSpeed)
+                {
+                    Heal();
+                    timer = 0;
+                }
+            }
+            else
+                agent.SetDestination(friendly.transform.position);
         }
-        if (canAttack)
-        {
-            agent.SetDestination(transform.position);
-            Heal();
-        }
-        else
-            agent.SetDestination(friendly.transform.position);
     }
 
     void Heal()
     {
-
+        enemy.HealEnemy(stats.damage);
+        Destroy(Instantiate(stats.shootParticles, transform.position, Quaternion.identity), 5);
     }
 }

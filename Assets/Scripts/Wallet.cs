@@ -13,6 +13,19 @@ public class Wallet : MonoBehaviour
     {
         Transaction(startAmount);
     }
+    private void OnEnable()
+    {
+        Enemy.EnemyDeath += GetLoot;
+    }
+    private void OnDisable()
+    {
+        Enemy.EnemyDeath -= GetLoot;
+    }
+
+    void GetLoot(int value)
+    {
+        balance += value;
+    }
 
     public bool Transaction(int value)
     {

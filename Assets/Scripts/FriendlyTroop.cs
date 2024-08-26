@@ -12,25 +12,24 @@ public class FriendlyTroop : Friendly
         {
             enemy = f;
             MoveTowardsEnemy();
-            return;
-        }
-
-        if (canAttack)
-        {
-            agent.SetDestination(transform.position);
-            if (timer >= 1)
+            if (canAttack)
             {
-                timer = 0;
-                Attack();
+                agent.SetDestination(transform.position);
+                if (timer >= stats.attackSpeed)
+                {
+                    timer = 0;
+                    Attack();
+                }
             }
-
+            else
+                agent.SetDestination(enemy.transform.position);
         }
-        else
-            agent.SetDestination(enemy.transform.position);
+
     }
 
     void Attack()
     {
         enemy.TakeDamage(stats.damage);
+        Destroy(Instantiate(stats.shootParticles, transform.position, Quaternion.identity), 5);
     }
 }
